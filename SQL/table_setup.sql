@@ -21,7 +21,7 @@ CREATE TABLE DAILY_SALES_SUMMARY (
     total_revenue        NUMBER(12, 2) NOT NULL,
     CONSTRAINT pk_sales_summary PRIMARY KEY (sales_date, product_id)
 );
--- Logging Table (For tracking ETL job execution)
+-- Logging Table
 CREATE TABLE ETL_LOG (
     log_id          NUMBER GENERATED ALWAYS AS IDENTITY,
     process_name    VARCHAR2(100),
@@ -36,7 +36,7 @@ CREATE TABLE ETL_LOG (
 ALTER TABLE ETL_LOG RENAME COLUMN rows_processed TO target_rows_merged;
 ALTER TABLE ETL_LOG ADD (
     source_rows_read NUMBER,
-    duration_seconds NUMBER(10, 3) -- New column for calculated duration
+    duration_seconds NUMBER(10, 3)
 );
 COMMIT;
 

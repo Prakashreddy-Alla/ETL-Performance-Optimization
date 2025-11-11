@@ -34,7 +34,7 @@ BEGIN
     RETURNING log_id INTO v_log_id;
     COMMIT;
     
-    -- 2. Row-by-Row Processing (INEFFICIENT Loop)
+    -- 2. Row-by-Row Processing
     FOR r_sales_record IN c_sales_data LOOP
         
         -- Calculate Revenue (Transform phase)
